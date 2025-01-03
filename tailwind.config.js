@@ -5,6 +5,11 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
+        stropica: ['Stropica', 'sans-serif'],
+      },
+      backgroundImage: {
+        'dots': "url('/public/images/dots.png')",
+        'dots2': "url('/public/images/dots-2.png')",
       }
     },
   },

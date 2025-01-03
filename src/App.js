@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UnlockPage from "./UnlockPage";
 import SuccessPage from "./SuccessPage";
+import './styles/global.css';
 
 const App = () => {
   return (

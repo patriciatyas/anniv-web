@@ -1,9 +1,17 @@
-import React from 'react';
-import AnniversaryWebsite from './AnniversaryWebsite';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UnlockPage from "./UnlockPage";
+import SuccessPage from "./SuccessPage";
 
-function App() {
-  return <AnniversaryWebsite />;
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<UnlockPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

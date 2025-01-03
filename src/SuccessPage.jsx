@@ -28,6 +28,9 @@ const SuccessPage = () => {
     <div className="relative flex items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC]">
       {/* Navigation Buttons on Top */}
       {currentPage > 0 && (
+        <img src="./images/header.png" alt="header" className="absolute top-0 z-40"/>
+      )}
+      {currentPage > 0 && (
         <button
           className="absolute font-sans top-4 left-4 text-5xl text-white p-2 z-50"
           onClick={prevPage}

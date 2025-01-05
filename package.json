@@ -5,6 +5,7 @@
   "dependencies": {
     "@fontsource/dm-sans": "^5.1.1",
     "@heroicons/react": "^1.0.6",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "cra-template": "1.2.0",
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",

@@ -7,7 +7,7 @@ const UnlockPage = () => {
   const navigate = useNavigate();
   // const audioRef = useRef(null);
 
-  const expectedCode = "06012023";
+  const expectedCode = "07012023";
 
   const handleSubmit = (e) => {
     e.preventDefault();

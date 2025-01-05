@@ -27,7 +27,8 @@ const UnlockPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <img src="./images/lock-key.png" alt="lock-key" className="w-36 mb-3 pl-4"/>
+      <div className="block sm:hidden flex flex-col items-center justify-center">
+      <img src="./images/lock-key.png" alt="lock-key" className="w-36 mb-3"/>
       <h1 className="text-xl font-sans text-center mb-1 text-[#F9437C]">ENTER THE PASSWORD</h1>
       <form
         onSubmit={handleSubmit}
@@ -49,6 +50,12 @@ const UnlockPage = () => {
       </form>
       {error && <p className="text-red-500 mt-2">{error}</p>}
       {/* <audio ref={audioRef} src="/path-to-your-audio-file.mp3" /> */}
+      </div>
+
+      <div className="hidden sm:flex flex-col items-center justify-center  text-[#F9437C] w-full h-full">
+        <h1 className="text-3xl font-bold mb-4">OPEN ON YOUR PHONE ONLY :) </h1>
+        <p className="text-lg">This page is optimized for mobile devices. :3 </p>
+      </div>
     </div>
   );
 };

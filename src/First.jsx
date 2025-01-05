@@ -22,14 +22,14 @@ const First = () => {
       <img
         src="./images/happy-anniv.png"
         alt="happy anniv"
-        className={`w-80 z-10 transition-opacity duration-1000 ${
+        className={`w-80 z-10 animate-float transition-opacity duration-1000 ${
           fadeIn[0] ? "opacity-100" : "opacity-0"
         }`}
       />
       <img
         src="./images/calendar.png"
         alt="calendar"
-        className={`w-80 mt-10 z-10 transition-opacity duration-1000 ${
+        className={`w-80 animate-float mt-10 z-10 transition-opacity duration-1000 ${
           fadeIn[1] ? "opacity-100" : "opacity-0"
         }`}
       />

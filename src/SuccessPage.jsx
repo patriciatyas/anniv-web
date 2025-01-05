@@ -37,7 +37,8 @@ const SuccessPage = () => {
   const CurrentPageComponent = pages[currentPage];
 
   return (
-    <div className="relative flex items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC]">
+    <div className="relative flex items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC] ">
+      <div className="relative block  items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC] flex sm:hidden">
       {/* Navigation Buttons on Top */}
       {currentPage > 0 && (
         // <img src="./images/header.png" alt="header" className="absolute top-0 z-40"/>
@@ -83,6 +84,12 @@ const SuccessPage = () => {
             <Page />
           </div>
         ))}
+      </div>
+      </div>
+
+      <div className="hidden sm:flex flex-col items-center justify-center  text-[#F9437C] w-full h-full">
+        <h1 className="text-3xl font-bold mb-4">OPEN ON YOUR PHONE ONLY :) </h1>
+        <p className="text-lg">This page is optimized for mobile devices. :3 </p>
       </div>
     </div>
   );

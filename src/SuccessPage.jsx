@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import First from "./First";
 import Second from "./Second";
 import Third from "./Third";
@@ -6,6 +6,7 @@ import Fourth from "./Fourth";
 import Fifth from "./Fifth";
 import Sixth from "./Sixth";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import { useLocation } from "react-router-dom";
 
 
 const pages = [First, Second, Third, Fourth, Fifth, Sixth];
@@ -21,6 +22,17 @@ const headers = [
 
 const SuccessPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const location = useLocation();
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (location.state?.playAudio && audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => console.log("Audio started playing!"))
+        .catch((error) => console.error("Error playing audio:", error));
+    }
+  }, [location.state])
 
   const nextPage = () => {
     if (currentPage < pages.length - 1) {
@@ -38,10 +50,10 @@ const SuccessPage = () => {
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC] ">
+      <audio ref={audioRef} src="up.mp3" />
       <div className="relative block  items-center justify-center overflow-hidden min-h-screen bg-[#EBB7CC] flex sm:hidden">
       {/* Navigation Buttons on Top */}
       {currentPage > 0 && (
-        // <img src="./images/header.png" alt="header" className="absolute top-0 z-40"/>
         <div className="absolute top-0 w-full bg-[#F9437C] rounded-b-3xl text-white text-center py-4 z-40">
           <h1 className="text-4xl font-stropica leading-5 pt-4">{headers[currentPage]?.h1}</h1>
           <h5 className="text-lg text-[#F9E0CD] font-sans">{headers[currentPage]?.h5}</h5>

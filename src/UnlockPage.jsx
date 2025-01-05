@@ -5,7 +5,7 @@ const UnlockPage = () => {
   const [inputCode, setInputCode] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  // const audioRef = useRef(null);
+  const audioRef = useRef(null);
 
   const expectedCode = "07012023";
 
@@ -15,11 +15,18 @@ const UnlockPage = () => {
     if (inputCode === expectedCode) {
       setError("");
       // Play the audio
-      // if (audioRef.current) {
-      //   audioRef.current.play();
-      // }
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => {
+            console.log("Audio is playing!");
+          })
+          .catch((error) => {
+            console.error("Failed to play audio:", error);
+          });
+      }
       // Redirect to the success page
-      navigate("/success");
+      navigate("/success", { state: { playAudio: true } });
     } else {
       setError("incorrect password. try again? :)");
     }
@@ -49,7 +56,7 @@ const UnlockPage = () => {
         </button>
       </form>
       {error && <p className="text-red-500 mt-2">{error}</p>}
-      {/* <audio ref={audioRef} src="/path-to-your-audio-file.mp3" /> */}
+      <audio ref={audioRef} src="up.mp3" />
       </div>
 
       <div className="hidden sm:flex flex-col items-center justify-center  text-[#F9437C] w-full h-full">

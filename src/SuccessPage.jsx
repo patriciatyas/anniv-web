@@ -27,12 +27,16 @@ const SuccessPage = () => {
 
   useEffect(() => {
     if (location.state?.playAudio && audioRef.current) {
-      audioRef.current
+      if (currentPage === 5) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current
         .play()
         .then(() => console.log("Audio started playing!"))
         .catch((error) => console.error("Error playing audio:", error));
+      }
     }
-  }, [location.state])
+  }, [currentPage])
 
   const nextPage = () => {
     if (currentPage < pages.length - 1) {
@@ -93,7 +97,7 @@ const SuccessPage = () => {
       >
         {pages.map((Page, index) => (
           <div key={index} className="flex-shrink-0 w-full h-full">
-            <Page />
+            <Page audioRef={audioRef} />
           </div>
         ))}
       </div>
